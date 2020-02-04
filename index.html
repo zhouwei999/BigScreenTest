@@ -1,8 +1,62 @@
 <html>
     <head>
-        
+        <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=8cf1b047a7bccd77a82637036c58096e"></script>  
+        <script type="text/javascript" src="https://webapi.amap.com/loca?v=1.3.0&key=8cf1b047a7bccd77a82637036c58096e"></script>
+        <script src="https://a.amap.com/Loca/static/mock/wjarea.js"></script>
     </head>
-    <body>
-        <div class="main_div">hello,webpackTest</div> 
+    <body> 
+        <main class="background_div">
+            <div id="container">
+                
+            </div>
+            <div class="left">
+                <div class="left_div1">
+                    2019年11月28号
+                </div>
+                <div class="left_div2">
+                    <div>供电负荷趋势（kWh）</div>
+                    <div id="chart1"></div>
+                </div>
+                <div class="left_div3">
+                    <div>
+                        <div>昨日用电分布</div>
+                        <div id="chart2"></div>
+                    </div>
+                    <div>
+                        <div>燃料消耗（kgce）</div>
+                        <div id="chart3"></div>
+                    </div>
+                </div>
+                <div class="left_div4">
+                    <div>
+                        <div>产量（个）</div>
+                        <div id="chart4"></div>
+                    </div>
+                    <div>
+                        <div>产品单耗（kgce/个）</div>
+                        <div id="chart5"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                
+            </div>
+            <div class="right">
+                
+            </div>
+
+            <!-- 告警表格 -->
+            <div class="centerTable">
+                <table id="warningTable" class="warningTable table">
+                    <thead style="color: rgba(23, 255, 243)"></thead>
+                    <tbody style="color: #ffffff;"></tbodystyle="">
+                </table>
+            </div>
+
+            <!-- 设置按钮 -->
+            <div class="setButton">
+                 
+            </div>
+        </main>  
     </body>
 </html>

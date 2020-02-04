@@ -44,6 +44,11 @@ module.exports = {
                 // removeComments:true,   //删除注释
                 // collapseWhitespace: true      //删除空格，压缩
             },
-        })
+        }),
+        // new webpack.ProvidePlugin({  // 在webpack中添加插件ProvidePlugin，引入已经通过npm安装的jquery
+        //     $:"jquery",
+        //     jQuery:"jquery",
+        //     "window.jQuery":"jquery"
+        // })
     ]
 }
