@@ -1,5 +1,6 @@
 $divBackground-color: rgba(13, 35, 94, 0.76);
 $chartMarginBottom: 2rem; 
+$borderFourColor: rgb(255, 253, 253); 
 
 body{
     margin:0;
@@ -9,7 +10,7 @@ body{
 .background_div{
     width: 100%;
     height: 100%;
-    background-color:gray;
+    background-color:black;
 }
 
 main{   
@@ -20,9 +21,8 @@ main{
         height: 100%; 
     }
 
-    .left{ 
-        position: absolute; 
-        left: 1.2%;
+    .side{ 
+        position: absolute;  
         top: 0;
         width: 27%;
         height: 100%;
@@ -30,53 +30,44 @@ main{
         flex-direction: column;
         overflow: hidden; //可以让元素严格按照百分比显示，而防止被内部大尺寸元素撑住
         
-        .left_div1{
-            margin: 2.8rem 0; 
+        .side_div1{  
             font-size: 2.8rem;
+            height: 11%;  
+            display: flex;
+            align-items:center;
         }
 
-        .left_div2{
+        .side_div2{  
+            box-sizing: border-box;
+            box-shadow: inset 0px 0px 0px 0.35rem #2C6297;
             height: 27%;
-            background: $divBackground-color;
-            padding: 0.6rem;
-            margin-bottom: $chartMarginBottom;
+            background-color: $divBackground-color; 
+            margin-bottom: $chartMarginBottom;  
 
             #chart1{
+                margin: 0 0 0 2.5rem;
                 width: 100%;
-                height: 90%;
+                height: 80%;
             }
         }
 
-        .left_div3,.left_div4{ 
+        .side_div3,.side_div4{ 
             height: 27%;
             display: flex; 
             justify-content: space-between;
             
             >div{
-                width: 49%;
-                background: $divBackground-color;
+                width: 49%;   
+                background-color: $divBackground-color; 
+                box-shadow: inset 0px 0px 0px 0.35rem #2C6297;
             }
         } 
 
-        .left_div3{
+        .side_div3{
             margin-bottom: $chartMarginBottom;
         }
     } 
-
-    .right{ 
-        position: absolute; 
-        right: 1.2%;
-        top: 0;
-        width: 27%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden; //可以让元素严格按照百分比显示，而防止被内部大尺寸元素撑住
-        
-        background-color:  rgba(13, 35, 94, 0.4);
-         
-    } 
-    
+ 
     .centerTable{
         position: fixed; 
         right: 29.4%;
@@ -96,6 +87,20 @@ main{
         width: 7rem;
         height: 5rem;
         background-color:  rgba(13, 35, 94, 0.4);
+    }
+
+    .myTitle{
+        position: fixed;
+        left: 50%;
+        transform:translate(-50%);
+        top: 4%;
+        font-size: 4.8rem;
+
+        .line{
+            width:100%;
+            height:0.4rem;
+            background: -webkit-linear-gradient(left, rgba(95,243,251, 0) -4%,rgba(95,243,251, 1) 50%,rgba(95,243,251, 0) 100%);
+        }
     }
 }
  
@@ -117,3 +122,39 @@ main{
     text-align: center;
 } 
  
+.border{ 
+    background: linear-gradient($borderFourColor, $borderFourColor) left top,
+    linear-gradient($borderFourColor, $borderFourColor) left top,
+    linear-gradient($borderFourColor, $borderFourColor) right top,
+    linear-gradient($borderFourColor, $borderFourColor) right top,
+    linear-gradient($borderFourColor, $borderFourColor) left bottom,
+    linear-gradient($borderFourColor, $borderFourColor) left bottom,
+    linear-gradient($borderFourColor, $borderFourColor) right bottom,
+    linear-gradient($borderFourColor, $borderFourColor) right bottom;
+    background-repeat: no-repeat;
+    background-size: 0.1vw 0.5vw, 0.5vw 0.1vw;  
+}
+
+.divTitleFontsize{
+    font-size: 2.5rem;
+    margin: 1.5rem 0 0 2.5rem;
+} 
+
+.chart-wrap {  
+    display: flex; 
+    flex-direction: column;
+
+    .chart {
+        flex: 1;
+        height: 0; //这样可以不让内部元素撑住高度而破坏布局比例
+    }
+}
+
+#chart2,#chart3,#chart4,#chart5{
+    margin: 0 0 0 2.5rem; 
+}
+
+.right-title{ 
+    font-size: 3.6rem;
+    color: red; 
+}

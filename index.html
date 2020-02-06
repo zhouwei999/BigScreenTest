@@ -9,44 +9,76 @@
             <div id="container">
                 
             </div>
-            <div class="left">
-                <div class="left_div1">
+            <div id="left" class="side" style="left: 1.2%;">
+                <div class="side_div1">
                     2019年11月28号
                 </div>
-                <div class="left_div2">
-                    <div>供电负荷趋势（kWh）</div>
+                <div class="side_div2 border">
+                    <div class="divTitleFontsize">供电负荷趋势（kWh）</div>
                     <div id="chart1"></div>
                 </div>
-                <div class="left_div3">
-                    <div>
-                        <div>昨日用电分布</div>
-                        <div id="chart2"></div>
+                <div class="side_div3">
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">昨日用电分布</div>
+                        <div class="chart"><div id="chart2" style="height: 100%;width:100%"></div></div>
                     </div>
-                    <div>
-                        <div>燃料消耗（kgce）</div>
-                        <div id="chart3"></div>
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">燃料消耗（kgce）</div>
+                        <div class="chart"><div id="chart3" style="height: 100%;width:100%"></div></div>
                     </div>
                 </div>
-                <div class="left_div4">
-                    <div>
-                        <div>产量（个）</div>
-                        <div id="chart4"></div>
+                <div class="side_div4">
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">产量（个）</div>
+                        <div class="chart"><div id="chart4" style="height: 100%;width:100%"></div></div>
                     </div>
-                    <div>
-                        <div>产品单耗（kgce/个）</div>
-                        <div id="chart5"></div>
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">产品单耗（kgce/个）</div>
+                        <div class="chart"><div id="chart5" style="height: 100%;width:100%"></div></div>
                     </div>
                 </div>
             </div>
             <div class="center">
                 
             </div>
-            <div class="right">
-                
+            <div id="right" class="side" style="right: 1.2%;">
+                <div class="side_div1"> 
+                    <div style="border-left: 0.5rem solid #CCD0D6;"></div>
+                    <div class="right-title">欢迎市领导莅临玲珑集团！</div> 
+                </div>
+                <div class="side_div3"> 
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">未来七天天气预报（℃）</div>
+                        <div class="chart"><div id="chart6" style="height: 100%;width:100%"></div></div>
+                    </div>
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">生产供气量（t）</div>
+                        <div class="chart"><div id="chart7" style="height: 100%;width:100%"></div></div>
+                    </div>
+                </div>
+                <div class="side_div3">
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">蒸汽供暖负荷预测</div>
+                        <div class="chart"><div id="chart2" style="height: 100%;width:100%"></div></div>
+                    </div>
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">制冷负荷（t）</div>
+                        <div class="chart"><div id="chart3" style="height: 100%;width:100%"></div></div>
+                    </div>
+                </div>
+                <div class="side_div4">
+                    <div class="chart-wrap border">
+                        <div class="divTitleFontsize">用水量（t）</div>
+                        <div class="chart"><div id="chart4" style="height: 100%;width:100%"></div></div>
+                    </div>
+                    <div class="chart-wrap border">
+                         
+                    </div>
+                </div>
             </div>
 
             <!-- 告警表格 -->
-            <div class="centerTable">
+            <div class="centerTable" style="display: none;">
                 <table id="warningTable" class="warningTable table">
                     <thead style="color: rgba(23, 255, 243)"></thead>
                     <tbody style="color: #ffffff;"></tbodystyle="">
@@ -56,6 +88,13 @@
             <!-- 设置按钮 -->
             <div class="setButton">
                  
+            </div>
+
+            <!-- 顶部文字 -->
+            <div class="myTitle">
+                <!-- 缺少图片 -->
+                玲珑智慧综合能源系统
+                <div class="line"></div>
             </div>
         </main>  
     </body>

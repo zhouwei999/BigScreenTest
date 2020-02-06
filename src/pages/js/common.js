@@ -21,3 +21,4 @@ function pageResize() {
 }
  
 pageResize();
+sessionStorage.setItem("scale",scale)
