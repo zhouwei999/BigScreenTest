@@ -147,13 +147,13 @@ main{
     .chart {
         flex: 1;
         height: 0; //这样可以不让内部元素撑住高度而破坏布局比例
+        
+        >div{
+            margin: 0 0 0 2.5rem; 
+        }
     }
 }
-
-#chart2,#chart3,#chart4,#chart5{
-    margin: 0 0 0 2.5rem; 
-}
-
+  
 .right-title{ 
     font-size: 3.6rem;
     color: red; 

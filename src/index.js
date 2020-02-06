@@ -196,6 +196,11 @@ initChart2();
 initChart3();
 initChart4();
 initChart5();
+// initChart6();
+initChart7();
+initChart8();
+initChart9();
+initChart10();
 initWarningTable();
 
 function showWarn(){
@@ -836,6 +841,674 @@ function initChart5(){
             },
             data: [500, 400, 500, 500, 500, 400,400, 500, 500]
         }]
+    };
+   
+    chart.setOption(option);
+}
+
+function initChart6(){
+    // 图表数据
+    let xData = function() {
+        var data = [];
+        for (var i = 0; i < 7; i++) {
+            data.push('2019 11-' + (24+i));
+        }
+        return data;
+    }()
+     
+    // 初始化图表
+    let chart = echarts.init(document.getElementById("chart6"));   
+    let option = { 
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "shadow"
+            },
+            textStyle: {
+                fontWeight: 'normal',
+                fontSize: 25 * scale, 
+            },
+        },
+        grid: { 
+            top: '24%',
+            left: '0',
+            right: '10%',
+            bottom: '8%',
+            containLabel: true, 
+        },
+        "legend": { 
+            right: '10%',
+            bottom: '4%',
+            top:'3%',
+            textStyle: {
+                color: '#fff',
+                fontSize: 25 * scale,
+            },
+            data: ['半钢轮胎', '全钢轮胎'],
+            itemWidth:20*scale,
+            itemHeight:20*scale,
+        },  
+        "xAxis": [{
+            "type": "category",
+            data: xData,
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0)',
+                    width: 0 
+                }
+          },
+          axisTick:{
+            show:false
+          },
+          axisLabel: { 
+            textStyle: {
+              fontFamily: 'Microsoft YaHei',
+              color:'#fff',
+              fontSize: 23*scale,  // x轴字大小
+            }
+          }, 
+        }],
+        yAxis: {
+            type: 'value', 
+            axisLine: {
+              show: false,
+              lineStyle: {
+                color: 'white',  
+                // width: 1.3* scale,    
+              }
+            },
+            axisTick:{
+              show:false
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: 'rgba(255,255,255,0.3)',
+                width: 1.3* scale,  // 中间分割线粗细
+              }
+            }, 
+            axisLabel: {  
+                textStyle: {
+                    color: 'white',
+                    fontSize: 25*scale,
+                }
+            }, 
+        }, 
+        series: [{
+            name: '半钢轮胎',
+            type: 'bar',
+            barWidth: '15%',
+            barGap:'80%',
+            itemStyle: {
+              normal: {
+                  color: '#1170E4', 
+              },
+            },
+            "label": {
+              "normal": {
+                  "show": true,
+                  "position": "top",
+                  "formatter": "{c}",
+                   color:'#fff',
+                   fontSize: 23*scale,
+              }, 
+            },
+            data: [400, 400, 300, 300, 300, 400, 400, 400, 300]
+          },
+          {
+            name: '全钢轮胎',
+            type: 'bar',
+            barGap:'80%',
+            barWidth: '15%',
+            itemStyle: {
+              normal: {
+                   color: '#25ECED', 
+              }
+              
+            },
+            "label": {
+              "normal": {
+                  "show": true,
+                  "position": "top",
+                  "formatter": "{c}",
+                   color:'#fff',
+                   fontSize: 23*scale,
+              }, 
+            },
+            data: [500, 400, 500, 500, 500, 400,400, 500, 500]
+        }]
+    };
+   
+    chart.setOption(option);
+}
+
+function initChart7(){
+    // 图表数据
+    let xData = function() {
+        var data = [];
+        for (var i = 0; i < 7; i++) {
+            data.push('2019 11-' + (24+i));
+        }
+        return data;
+    }()
+     
+    // 初始化图表
+    let chart = echarts.init(document.getElementById("chart7"));   
+    let option = { 
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "shadow"
+            },
+            textStyle: {
+                fontWeight: 'normal',
+                fontSize: 25 * scale, 
+            },
+        },
+        grid: { 
+            top: '24%',
+            left: '0',
+            right: '10%',
+            bottom: '8%',
+            containLabel: true, 
+        }, 
+        "xAxis": [{
+            "type": "category",
+            data: xData,
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0)',
+                    width: 0 
+                }
+          },
+          axisTick:{
+            show:false
+          },
+          axisLabel: { 
+            textStyle: {
+              fontFamily: 'Microsoft YaHei',
+              color:'#fff',
+              fontSize: 23*scale,  // x轴字大小
+            }
+          }, 
+        }],
+        yAxis: {
+            type: 'value', 
+            axisLine: {
+              show: false,
+              lineStyle: {
+                color: 'white',  
+                // width: 1.3* scale,    
+              }
+            },
+            axisTick:{
+              show:false
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: 'rgba(255,255,255,0.3)',
+                width: 1.3* scale,  // 中间分割线粗细
+              }
+            }, 
+            axisLabel: {  
+                textStyle: {
+                    color: 'white',
+                    fontSize: 25*scale,
+                }
+            }, 
+        }, 
+        series: [{ 
+            type: 'bar', 
+            barWidth: '20%',
+            itemStyle: {
+                normal: { 
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {offset: 0, color: 'rgba(0,244,255,1)'},
+                            {offset: 1, color: 'rgba(0,77,167,1)'}
+                        ]
+                    )
+                }
+            },
+            "label": {
+              "normal": {
+                  "show": true,
+                  "position": "top",
+                  "formatter": "{c}",
+                   color:'#fff',
+                   fontSize: 23*scale,
+              }, 
+            },
+            data: [500, 400, 500, 500, 500, 400,400, 500, 500]
+        }]
+    };
+   
+    chart.setOption(option);
+}
+
+function initChart8(){
+    // 图表数据 
+    let xData = [];let rateData= [];
+    for (var i = 0; i < 7; i++) {
+        xData.push('2019 11-' + (24+i));
+        rateData.push((300+i*Math.random()*300).toFixed(2))
+    }  
+     
+    // 初始化图表
+    let chart = echarts.init(document.getElementById("chart8"));   
+    let option = { 
+        tooltip: {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "line"
+            },
+            lineStyle:{
+                width:5*scale
+            },
+            textStyle: {
+                fontWeight: 'normal',
+                fontSize: 25 * scale, 
+            },
+        },
+        grid: { 
+            top: '24%',
+            left: '0',
+            right: '10%',
+            bottom: '8%',
+            containLabel: true, 
+        },  
+        tooltip: {
+            trigger: 'axis', 
+            axisPointer: {
+                type: 'shadow',
+                label: {
+                    show: true,
+                    backgroundColor: '#7B7DDC'
+                }
+            }
+        },
+        "legend": { 
+            left: 'center',
+            bottom: '4%',
+            top:'3%',
+            textStyle: {
+                color: '#fff',
+                fontSize: 25 * scale,
+            },
+            data: ['蒸汽', '负荷'],
+            itemWidth:20*scale,
+            itemHeight:20*scale,
+        },  
+        xAxis: [{
+            "type": "category",
+            data: xData,
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0)',
+                    width: 0 
+                }
+            },
+            axisTick:{
+                show:false
+            },
+            axisLabel: { 
+                textStyle: {
+                    fontFamily: 'Microsoft YaHei',
+                    color:'#fff',
+                    fontSize: 23*scale,  // x轴字大小
+                }
+            }, 
+        }],
+        yAxis: [{
+            name: '单位：t',
+            nameTextStyle:{
+                fontSize:23*scale,
+                fontWeight:'normal',
+                lineHeight:56*scale
+            },
+            type: 'value', 
+            axisLine: {
+              show: false,
+              lineStyle: {
+                color: 'white',  
+                // width: 1.3* scale,    
+              }
+            },
+            axisTick:{
+              show:false
+            },
+            splitLine: {
+              show: false, 
+            }, 
+            axisLabel: {  
+                textStyle: {
+                    color: 'white',
+                    fontSize: 25*scale,
+                }
+            }, 
+        },{
+            name: '单位：GT',
+            nameTextStyle:{
+                fontSize:23*scale,
+                fontWeight:'normal',
+                lineHeight:56*scale
+            },
+            type: 'value', 
+            axisLine: {
+              show: false,
+              lineStyle: {
+                color: 'white',  
+                // width: 1.3* scale,    
+              }
+            },
+            axisTick:{
+              show:false
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: 'rgba(255,255,255,0.3)',
+                width: 1.3* scale,  // 中间分割线粗细
+              }
+            }, 
+            axisLabel: {  
+                textStyle: {
+                    color: 'white',
+                    fontSize: 25*scale,
+                }
+            }, 
+        }], 
+        series: [{
+            name: '蒸汽',
+            type: 'line',
+            smooth: true, 
+            yAxisIndex: 1,
+            itemStyle: {
+                    normal: {
+                    color:'#DDF776'
+                },
+            },
+            data: rateData
+        },{ 
+            name: '负荷',
+            type: 'bar', 
+            barWidth: '15%',
+            itemStyle: {
+                normal: {
+                    barBorderRadius: 5,
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {offset: 0, color: 'rgba(0,244,255,1)'},
+                            {offset: 1, color: 'rgba(0,77,167,1)'}
+                        ]
+                    )
+                } 
+            },
+            data: [500, 400, 500, 500, 500, 400,400]
+        }]
+    };
+   
+    chart.setOption(option);
+}
+
+function initChart9(){
+    // 图表数据
+    let xData = function() {
+        var data = [];
+        for (var i = 0; i < 6; i++) {
+            data.push('11-' + (22+i));
+        }
+        data.push('11-29(今天)');
+        return data;
+    }()
+     
+    // 初始化图表
+    let chart = echarts.init(document.getElementById("chart9"));   
+    let option = { 
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "shadow"
+            },
+            textStyle: {
+                fontWeight: 'normal',
+                fontSize: 25 * scale, 
+            },
+        },
+        grid: { 
+            top: '24%',
+            left: '0',
+            right: '10%',
+            bottom: '8%',
+            containLabel: true, 
+        }, 
+        "xAxis": [{
+            interval:1,
+            "type": "category",
+            data: xData,
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0)',
+                    width: 0 
+                }
+          },
+          axisTick:{
+            show:false
+          },
+          axisLabel: { 
+            textStyle: {
+              fontFamily: 'Microsoft YaHei',
+              color:'#fff',
+              fontSize: 23*scale,  // x轴字大小
+            }
+          }, 
+        }],
+        yAxis: {
+            type: 'value', 
+            axisLine: {
+              show: false,
+              lineStyle: {
+                color: 'white',  
+                // width: 1.3* scale,    
+              }
+            },
+            axisTick:{
+              show:false
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: 'rgba(255,255,255,0.3)',
+                width: 1.3* scale,  // 中间分割线粗细
+              }
+            }, 
+            axisLabel: {  
+                textStyle: {
+                    color: 'white',
+                    fontSize: 25*scale,
+                }
+            }, 
+        }, 
+        series: [{ 
+            type: 'bar', 
+            barWidth: '20%',
+            itemStyle: {
+                normal: {
+                    barBorderRadius: 15*scale,
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {offset: 0, color: '#27AEF6'},
+                            {offset: 1, color: '#6455F1'}
+                        ]
+                    )
+                }
+            },
+            "label": {
+              "normal": {
+                  "show": true,
+                  "position": "top",
+                  "formatter": "{c}",
+                   color:'#fff',
+                   fontSize: 23*scale,
+              }, 
+            },
+            data: [500, 400, 500, 500, 500, 400,400]
+        }]
+    };
+   
+    chart.setOption(option);
+}
+
+function initChart10(){
+    // 图表数据
+    let xData = function() {
+        var data = [];
+        for (var i = 0; i < 6; i++) {
+            data.push('11-' + (22+i));
+        }
+        data.push('11-29(今天)');
+        return data;
+    }()
+     
+    // 初始化图表
+    let chart = echarts.init(document.getElementById("chart10"));   
+    let option = {  
+        grid: { 
+            top: '24%',
+            left: '0',
+            right: '10%',
+            bottom: '8%',
+            containLabel: true, 
+        }, 
+        "xAxis": [{
+            interval:1,
+            "type": "category",
+            data: xData,
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0)',
+                    width: 0 
+                }
+          },
+          axisTick:{
+            show:false
+          },
+          axisLabel: { 
+            textStyle: {
+              fontFamily: 'Microsoft YaHei',
+              color:'#fff',
+              fontSize: 23*scale,  // x轴字大小
+            }
+          }, 
+        }],
+        yAxis: {
+            name: '单位：t',
+            nameTextStyle:{
+                fontSize:23*scale,
+                fontWeight:'normal',
+                lineHeight:56*scale
+            },
+            type: 'value', 
+            axisLine: {
+              show: false,
+              lineStyle: {
+                color: 'white',  
+                // width: 1.3* scale,    
+              }
+            },
+            axisTick:{
+              show:false
+            },
+            splitLine: {
+              show: true,
+              lineStyle: {
+                color: 'rgba(255,255,255,0.3)',
+                width: 1.3* scale,  // 中间分割线粗细
+              }
+            }, 
+            axisLabel: {  
+                textStyle: {
+                    color: 'white',
+                    fontSize: 25*scale,
+                }
+            }, 
+        }, 
+        series:  [{ 
+            type: 'pictorialBar',
+            symbolSize: [35*scale, 16*scale],
+            symbolOffset: [0, -10*scale],
+            z: 12,
+            itemStyle: {
+                normal: {
+                    color: '#14b1eb'
+                }
+            },
+            data: [{
+                value: 100,
+                symbolPosition: 'end'
+            }, {
+                value: 50,
+                symbolPosition: 'end'
+            }, {
+                value: 20,
+                symbolPosition: 'end'
+            }]
+        }, { 
+            type: 'pictorialBar',
+            symbolSize: [35*scale, 16*scale],
+            symbolOffset: [0, 10*scale],
+            z: 12,
+            itemStyle: {
+                normal: {
+                    color: '#14b1eb'
+                }
+            },
+            data: [100, 50, 20]
+        }, { 
+            type: 'pictorialBar',
+            symbolSize: [55*scale, 22*scale],
+            symbolOffset: [0, 15*scale],
+            z: 11,
+            itemStyle: {
+                normal: {
+                    color: 'transparent',
+                    borderColor: '#14b1eb',
+                    borderWidth: 5
+                }
+            },
+            data: [100, 50, 20]
+        }, { 
+            type: 'pictorialBar',
+            symbolSize: [80*scale, 30*scale],
+            symbolOffset: [0, 20*scale],
+            z: 10,
+            itemStyle: {
+                normal: {
+                    color: 'transparent',
+                    borderColor: '#14b1eb',
+                    borderType: 'dashed',
+                    borderWidth: 5
+                }
+            },
+            data: [100, 50, 20]
+        }, {
+            type: 'bar',
+            itemStyle: {
+                normal: {
+                    color: '#14b1eb',
+                    opacity: .7
+                }
+            },
+            silent: true,
+            barWidth: 35*scale,
+            barGap: '-100%', // Make series be overlap
+            data: [100, 50, 20]
+        } 
+        ]   
     };
    
     chart.setOption(option);
