@@ -84,8 +84,12 @@ main{
         position: fixed; 
         right: 29.4%;
         bottom: 4%;
-        width: 7rem;
+        width: 6rem;
         height: 5rem;
+        text-align: center;
+        line-height: 5rem;
+        border: 0.3rem solid #737577;
+        border-radius: 1rem;
         background-color:  rgba(13, 35, 94, 0.4);
     }
 
@@ -103,7 +107,78 @@ main{
         }
     }
 }
+
+.centerTop{
+    position: fixed; 
+    left: 30%;
+    top: 14%;
+    font-size: 2.5rem;
+    padding: 3rem 2rem 2rem 2rem;
+    box-shadow: inset 0 0 1.6rem 0.35rem #2C6297;
+
+    >div{
+        margin-bottom: 1.5rem;
+    }
+}
+
+.centerChooseType{
+    display: flex;
+    position: fixed; 
+    left: 30%;
+    bottom: 4%;
+    font-size: 3.5rem; 
+
+    .chooses{
+        margin-right: 4.6rem;
+        >div{
+            display: flex;
+            align-items: center; 
+            cursor: pointer; 
+        }
+
+        >div:not(:first-child){
+            margin-top:2rem;
+        } 
+    }
+}
+
+.choosePic{ 
+    border-radius: 3rem; 
+    box-sizing: border-box;
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin-right: 2rem;
+}
+
+.choose{
+    >div{
+        background-color: yellow;
+    }
+    >span{
+        color: yellow;
+    }
+}
+
+.no_choose{ 
+    >div{
+        border: 0.2rem solid white;
+    }
+    >span{
+        color: white;
+    }
+}
+
+.fontSizeFour{
+    font-size: 5rem; 
+}
  
+.fontColorBlue{
+    color:#01D2F7
+}
+
 /*设置表格奇偶数行背景色不同*/
 .table>tbody>tr:nth-of-type(odd) {
     background: rgba(4, 10, 33, 1);
@@ -153,8 +228,27 @@ main{
         }
     }
 }
-  
-.right-title{ 
-    font-size: 3.6rem;
-    color: red; 
+
+@keyframes move {
+    0%, 15%{
+      transform: translateX(0);
+    }
+    95%,100%{
+      transform: translateX(calc(-100%));
+    }
+}
+    
+.right-title{  
+    white-space: nowrap; 
+    word-break: keep-all;
+    width: fit-content;
+    animation: move 8s linear infinite;
+}
+
+.right-title:hover {
+    animation-play-state: paused
+}
+
+.iconSize{
+    font-size: 3.5rem;
 }

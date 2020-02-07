@@ -19,6 +19,8 @@ function pageResize() {
 
     console.log(1,pageH, pageW,scale,defaultValue)
 }
- 
-pageResize();
-sessionStorage.setItem("scale",scale)
+   
+export {
+    scale,
+    pageResize
+}

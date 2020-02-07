@@ -4,9 +4,10 @@ const $ = require('jquery');
 const echarts = require('echarts'); 
 require('datatables.net');
 
-const common = require('./pages/js/common.js');
-let scale = sessionStorage.getItem("scale")
- console.log(22,scale,common.scale)
+import * as common from './pages/js/common'; 
+ 
+common.pageResize();
+const scale = common.scale;
 
  /*
 // 地图部分
@@ -196,7 +197,7 @@ initChart2();
 initChart3();
 initChart4();
 initChart5();
-// initChart6();
+initChart6();
 initChart7();
 initChart8();
 initChart9();
@@ -205,6 +206,36 @@ initWarningTable();
 
 function showWarn(){
     $(".centerTable").show();
+}
+
+$("#chooseElectric").click(()=>{
+    $("#chooseElectric").addClass('choose');$("#chooseElectric").removeClass('no_choose');
+    $("#chooseGas,#chooseWarm,#chooseWater").addClass('no_choose');
+    $("#chooseGas,#chooseWarm,#chooseWater").removeClass('choose');
+})
+
+$("#chooseGas").click(()=>{
+    $("#chooseGas").addClass('choose');$("#chooseGas").removeClass('no_choose');
+    $("#chooseElectric,#chooseWarm,#chooseWater").addClass('no_choose');
+    $("#chooseElectric,#chooseWarm,#chooseWater").removeClass('choose');
+})
+
+$("#chooseWarm").click(()=>{
+    $("#chooseWarm").addClass('choose');$("#chooseWarm").removeClass('no_choose');
+    $("#chooseGas,#chooseElectric,#chooseWater").addClass('no_choose');
+    $("#chooseGas,#chooseElectric,#chooseWater").removeClass('choose');
+})
+
+$("#chooseWater").click(()=>{
+    $("#chooseWater").addClass('choose');$("#chooseWater").removeClass('no_choose');
+    $("#chooseGas,#chooseWarm,#chooseElectric").addClass('no_choose');
+    $("#chooseGas,#chooseWarm,#chooseElectric").removeClass('choose');
+})
+
+// 选择地图中显示供电或者供气等
+function choose(e,type){
+    console.log(e,"type",type);
+
 }
 
 // 图表部分
@@ -466,6 +497,8 @@ function initChart3(){
             x: '4%',
             top: '8%',
             left:'center',
+            itemWidth:20*scale,
+            itemHeight:20*scale,
             textStyle: {
                 color: '#fff',
                 fontSize: 25 * scale,
@@ -613,8 +646,8 @@ function initChart4(){
                 fontSize: 25 * scale,
             },
             data: ['半钢轮胎', '全钢轮胎'],
-            itemWidth:10*scale,
-            itemHeight:10*scale,
+            itemWidth:20*scale,
+            itemHeight:20*scale,
         },  
         "xAxis": [{
             "type": "category",
@@ -848,52 +881,74 @@ function initChart5(){
 
 function initChart6(){
     // 图表数据
-    let xData = function() {
-        var data = [];
-        for (var i = 0; i < 7; i++) {
-            data.push('2019 11-' + (24+i));
-        }
-        return data;
-    }()
-     
+    let lineXValue = [];
+    for(let i=1;i<13;i++){
+        lineXValue.push(2*i+":00")
+    } 
+    let charts = { 
+        names: ['最低温度', '最高温度','平均温度'],
+        lineX: lineXValue,
+        value: [
+            [120, 132, 101, 134, 90, 230, 210],
+            [220, 182, 191, 210, 230, 270, 270],
+            [150, 232, 201, 154, 190, 180, 210]
+        ]
+
+    }
+    
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart6"));   
-    let option = { 
-        "tooltip": {
-            "trigger": "axis",
-            "axisPointer": {
-                "type": "shadow"
-            },
+    let chart = echarts.init(document.getElementById("chart6"));  
+
+    let color = ['#DDF776', '#53F3F3','#0696F9']
+    let lineY = [] 
+    for (let i = 0; i < charts.names.length; i++) {
+        let x = i
+        if (x > color.length - 1) {
+            x = color.length - 1
+        }
+        let data = {
+            name: charts.names[i],
+            type: 'line', 
+            color: color[x], 
+            symbol: 'circle',
+            symbolSize: 12*scale,
+            data: charts.value[i]
+        }
+        lineY.push(data)
+    }
+ 
+    let option = {
+        // backgroundColor:'rgba(13, 35, 94, 0.2)',
+        tooltip: {
+            trigger: 'axis',
             textStyle: {
                 fontWeight: 'normal',
                 fontSize: 25 * scale, 
             },
         },
-        grid: { 
-            top: '24%',
-            left: '0',
-            right: '10%',
-            bottom: '8%',
-            containLabel: true, 
-        },
-        "legend": { 
-            right: '10%',
-            bottom: '4%',
-            top:'3%',
+        legend: {
+            data: charts.names,
             textStyle: {
-                color: '#fff',
-                fontSize: 25 * scale,
-            },
-            data: ['半钢轮胎', '全钢轮胎'],
+                fontSize: 25*scale,
+                color: 'white', 
+            },  
             itemWidth:20*scale,
             itemHeight:20*scale,
-        },  
-        "xAxis": [{
-            "type": "category",
-            data: xData,
+            left:'center',
+        },
+        grid: {
+            top: '14%',
+            left: '0',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true,
+        },
+        xAxis: [{
+            type: "category",
+            data: charts.lineX,
             axisLine: {
                 lineStyle: {
-                    color: 'rgba(255,255,255,0)',
+                    // color: 'rgba(255,255,255,0.3)',
                     width: 0 
                 }
           },
@@ -907,7 +962,7 @@ function initChart6(){
               fontSize: 23*scale,  // x轴字大小
             }
           }, 
-        }],
+        }], 
         yAxis: {
             type: 'value', 
             axisLine: {
@@ -933,52 +988,10 @@ function initChart6(){
                     fontSize: 25*scale,
                 }
             }, 
-        }, 
-        series: [{
-            name: '半钢轮胎',
-            type: 'bar',
-            barWidth: '15%',
-            barGap:'80%',
-            itemStyle: {
-              normal: {
-                  color: '#1170E4', 
-              },
-            },
-            "label": {
-              "normal": {
-                  "show": true,
-                  "position": "top",
-                  "formatter": "{c}",
-                   color:'#fff',
-                   fontSize: 23*scale,
-              }, 
-            },
-            data: [400, 400, 300, 300, 300, 400, 400, 400, 300]
-          },
-          {
-            name: '全钢轮胎',
-            type: 'bar',
-            barGap:'80%',
-            barWidth: '15%',
-            itemStyle: {
-              normal: {
-                   color: '#25ECED', 
-              }
-              
-            },
-            "label": {
-              "normal": {
-                  "show": true,
-                  "position": "top",
-                  "formatter": "{c}",
-                   color:'#fff',
-                   fontSize: 23*scale,
-              }, 
-            },
-            data: [500, 400, 500, 500, 500, 400,400, 500, 500]
-        }]
-    };
-   
+        },
+        series: lineY
+    }
+ 
     chart.setOption(option);
 }
 
@@ -1241,8 +1254,8 @@ function initChart8(){
                     color: new echarts.graphic.LinearGradient(
                         0, 0, 0, 1,
                         [
-                            {offset: 0, color: 'rgba(0,244,255,1)'},
-                            {offset: 1, color: 'rgba(0,77,167,1)'}
+                            {offset: 0, color: 'rgba(132,211,114,1)'},
+                            {offset: 1, color: 'rgba(17,190,179,1)'}
                         ]
                     )
                 } 
@@ -1373,9 +1386,10 @@ function initChart10(){
         data.push('11-29(今天)');
         return data;
     }()
+    let data =  [100, 50, 20,34,120,80,68]
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart10"));   
+    let chart = echarts.init(document.getElementById("chart10"));
     let option = {  
         grid: { 
             top: '24%',
@@ -1467,7 +1481,7 @@ function initChart10(){
                     color: '#14b1eb'
                 }
             },
-            data: [100, 50, 20]
+            data: data
         }, { 
             type: 'pictorialBar',
             symbolSize: [55*scale, 22*scale],
@@ -1480,7 +1494,7 @@ function initChart10(){
                     borderWidth: 5
                 }
             },
-            data: [100, 50, 20]
+            data: data
         }, { 
             type: 'pictorialBar',
             symbolSize: [80*scale, 30*scale],
@@ -1494,7 +1508,7 @@ function initChart10(){
                     borderWidth: 5
                 }
             },
-            data: [100, 50, 20]
+            data: data
         }, {
             type: 'bar',
             itemStyle: {
@@ -1503,12 +1517,44 @@ function initChart10(){
                     opacity: .7
                 }
             },
+            label: {
+                normal: {
+                    show: true,
+                    lineHeight: 30*scale,
+                    width: 80*scale,
+                    height: 30*scale,
+                    backgroundColor: 'rgba(0,160,221,0.1)',
+                    borderRadius: 200*scale,
+                    position: ['-8', '-60'],
+                    distance: 1*scale,
+                    formatter: [
+                        '    {d|●}',
+                        ' {a|{c}}     \n',
+                        '    {b|}'
+                    ].join(','),
+                    rich: {
+                        d: {
+                            color: '#3CDDCF',
+                        },
+                        a: {
+                            color: '#fff',
+                            align: 'center',
+                        },
+                        b: {
+                            width: 1*scale,
+                            height: 30*scale,
+                            borderWidth: 1*scale,
+                            borderColor: '#234e6c',
+                            align: 'left'
+                        },
+                    }
+                }
+            },
             silent: true,
             barWidth: 35*scale,
             barGap: '-100%', // Make series be overlap
-            data: [100, 50, 20]
-        } 
-        ]   
+            data: data
+        }]   
     };
    
     chart.setOption(option);
