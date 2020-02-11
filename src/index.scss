@@ -113,11 +113,12 @@ main{
     left: 30%;
     top: 14%;
     font-size: 2.5rem;
-    padding: 3rem 2rem 2rem 2rem;
+    padding: 3rem 2rem 2rem 3rem;
     box-shadow: inset 0 0 1.6rem 0.35rem #2C6297;
 
     >div{
         margin-bottom: 1.5rem;
+        display: flex;
     }
 }
 
@@ -251,4 +252,19 @@ main{
 
 .iconSize{
     font-size: 3.5rem;
+}
+
+.bigiconSize{
+    font-size: 2.4rem;
+}
+
+.img{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.img2{
+    width: 3rem;
+    height: 3rem; 
 }

@@ -26,10 +26,16 @@ module.exports = {
               test: /\.scss$/,
               use: ['style-loader', 'css-loader', 'sass-loader']
             },
-            // {
-            //   test: /\.(jpg|png|gif|svg|webp)$/,
-            //   use: ['file-loader']
-            // },
+            {
+              test: /\.(jpg|png|gif|svg|webp)$/,
+              use: [{
+                loader: "file-loader",
+                options: {
+                    name: "images/[name].[ext]",
+                    esModule: false,
+                }
+              }]
+            },
             // {
             //   test: /\.(html|ejs)$/,
             //   use: ['html-loader']
