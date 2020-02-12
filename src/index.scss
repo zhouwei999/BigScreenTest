@@ -100,7 +100,13 @@ main{
         top: 4%;
         font-size: 4.8rem;
 
+        .ttitle{
+            display: flex;
+            align-items: center;
+        }
+
         .line{
+            margin-top: 1rem;
             width:100%;
             height:0.4rem;
             background: -webkit-linear-gradient(left, rgba(95,243,251, 0) -4%,rgba(95,243,251, 1) 50%,rgba(95,243,251, 0) 100%);
@@ -267,4 +273,49 @@ main{
 .img2{
     width: 3rem;
     height: 3rem; 
+}
+
+.titleImg{
+    width: 8rem;
+    height: 5rem; 
+    margin-right: 2rem;
+}
+
+.hideInfo{
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+    background-color: black;
+    /* z-index: 10000; */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.toBigDiv{
+    background-color: black;
+    left: 29%;
+    right: 29%;
+    top: 14%;
+    bottom: 4%; 
+    position: absolute;
+}
+
+#chartBig{
+    margin: 0 0 0 2.5rem;
+    width: 100%;
+    height: 80%;
+}
+
+.chooseColor {
+    background-image: linear-gradient(#235FD1, #43C7FC);
+    width: 2rem;
+    border-radius: 4rem;
+    margin-right: 2rem;
+}
+
+.chooseUnit{
+    >div{
+        margin-top: 3.5rem;;
+    }
 }

@@ -1,7 +1,8 @@
 <html>
     <head>
         <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=8cf1b047a7bccd77a82637036c58096e&plugin=Map3D"></script>  
-        <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1630238_xexq3i4s14.css">    
+        <script type="text/javascript" src="//webapi.amap.com/loca?v=1.3.0&key=8cf1b047a7bccd77a82637036c58096e&plugin=Map3D"></script>
+        <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1630238_m7gpdw4mu1.css">    
     </head>
     <body> 
         <main class="background_div">
@@ -10,7 +11,8 @@
             </div>
             <div id="left" class="side" style="left: 1.2%;">
                 <div class="side_div1">
-                    2019年11月28号
+                    <span id="todayDate">2019年11月28号</span>
+                    <span id="todayWeather" style="margin-left: 5rem;">6~11℃  晴</span>
                 </div>
                 <div class="side_div2 border" id="tobig1">
                     <div class="divTitleFontsize">供电负荷趋势（kWh）
@@ -80,7 +82,7 @@
             </div>
 
             <!-- 告警表格 -->
-            <div class="centerTable" style="display: none;">
+            <div class="centerTable" style="display: block;">
                 <table id="warningTable" class="warningTable table">
                     <thead style="color: rgba(23, 255, 243)"></thead>
                     <tbody style="color: #ffffff;"></tbodystyle="">
@@ -93,7 +95,7 @@
             </div>
 
             <!-- 中间上方排放量弹框 -->
-            <div class="centerTop border" style="display: none;">
+            <div class="centerTop border">
                 <div>
                     <img class="img" src="<%= require('./src/asset/dian_icon.png') %>" /> 
                     <!-- <i class="iconfont icon-lightningshandian iconSize"></i> -->
@@ -131,17 +133,35 @@
                 </div>
                 <div>
                     <div style="font-size: 1.7rem;">单位：kWh</div>
-                    <div>
-                        xx
+                    <div style="font-size: 2.2rem;display: flex;margin-top: 1.4rem;">
+                        <div class="chooseColor"></div>
+                        <div class="chooseUnit">
+                            <div>8000</div>
+                            <div>6000</div>
+                            <div>4000</div>
+                            <div>2000</div>
+                        </div>
                     </div>
                 </div> 
             </div>
 
             <!-- 顶部文字 -->
             <div class="myTitle">
-                <!-- 缺少图片 -->
-                玲珑智慧综合能源系统
+                <div class="ttitle">
+                    <img class="titleImg" src="<%= require('./src/asset/logo_linglong.png') %>" />
+                    玲珑智慧综合能源系统
+                </div>
                 <div class="line"></div>
+            </div>
+
+            <!-- 放大后的遮罩层 -->
+            <div class="hideInfo" style="display: none;"></div>
+            <div class="toBigDiv" style="display: none;">
+                <div style="display: flex;justify-content: space-between;">
+                    <span id="bigTitle" style="font-size: 4rem;">供电负荷趋势（kWh）</span>
+                    <i id="cancelBig" class="iconfont icon-quxiao iconSize"></i>
+                </div>
+                <div id="chartBig"></div>
             </div>
         </main>  
     </body>

@@ -19,8 +19,48 @@ function pageResize() {
 
     console.log(1,pageH, pageW,scale,defaultValue)
 }
+
+// 获取指定坐标中间点
+function getCenter(paths){ 
+    let lngs = [];let lats = [];
+    paths.map(item=>{
+        lngs.push(item[0]);
+        lats.push(item[1]);
+    })
+    let lngmax = Math.max(...lngs); let lngmin = Math.min(...lngs)
+    let latmax = Math.max(...lats); let latmin = Math.min(...lats) 
+  
+    return {lng:(lngmax+lngmin)/2,lat:(latmax+latmin)/2}
+}
+ 
+// 未来七天天气
+function get7Weather(){
+    let data = [];
+    $.ajax({
+        type: 'post',
+        url: 'http://route.showapi.com/9-9',
+        dataType: 'json',
+        async: false,
+        data: {
+            // "showapi_timestamp": formatterDateTime(),
+            "showapi_appid": 27292,
+            "showapi_sign": '829aecc822384203adc70d2c4853f5e3',
+            "areaid": "", 
+            "area": '常州',//北京
+        },
+        error: function (XmlHttpRequest, textStatus, errorThrown) {
+            console.log("未来15天天气数据获取失败!");
+        },
+        success: function (result) { 
+            data = result['showapi_res_body']['dayList'];
+        }
+    });
+    return data;
+}
    
 export {
     scale,
-    pageResize
+    pageResize,
+    getCenter,
+    get7Weather
 }
