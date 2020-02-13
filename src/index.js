@@ -55,7 +55,7 @@ let area = [{"coordinates":[[120.444454973611,37.3926157661066],
     
 // initMap(area,color1);
 initChart1(scale,"chart1");
-initChart2();
+initChart2(scale,"chart2");
 initChart3();
 initChart4();
 initChart5();
@@ -71,16 +71,19 @@ $(".setButton").click(()=>{
     else $(".centerTable").hide(); 
 })  
  
-$(".toseebig").click(()=>{  
-    // $('#tobig1').css('transform', 'scale(' + 1.2 + ')'); 
-
+$(".toseebig").click((e)=>{  
+    // $('#tobig1').css('transform', 'scale(' + 1.2 + ')');  
+    
     $(".hideInfo").show();
     $(".toBigDiv").show();
-    $("#bigTitle").text('供电负荷趋势（kWh）')
-    initChart1(scale*2,"chartBig");
+    $("#bigTitle").text((e.currentTarget.previousElementSibling.innerHTML).toString());
+    eval((e.currentTarget.previousElementSibling.className))(scale*2,"chartBig");
 })
 
 $("#cancelBig").click(()=>{
+    $("#chartBig").innerHTML = "";
+    $("#chartBig").empty();;
+    $("#chartBig").removeAttr("style");$("#chartBig").removeAttr("_echarts_instance_"); 
     $(".hideInfo").hide();
     $(".toBigDiv").hide();
 })
@@ -371,7 +374,7 @@ function initChart1(scale,initDiv){
     });
 }
 
-function initChart2(){
+function initChart2(scale,initDiv){
     // 图表数据
     let data = [{
             value: 909,
@@ -392,7 +395,7 @@ function initChart2(){
     ];
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart2"));  
+    let chart = echarts.init(document.getElementById(initDiv));  
     let color = ['rgb(131,249,103)', '#FBFE27', '#FE5050', '#1DB7E5'] 
      
     let option = { 
@@ -1584,7 +1587,7 @@ function initChart10(){
                     height: 40*scale,
                     backgroundColor: '#00326C', 
                     borderRadius: 400*scale,
-                    position: ['-8', '-70'],
+                    position: [`-${8*scale}`, `-${70*scale}`],
                     distance: 2*scale,
                     formatter: [
                         '    {d|●}',
