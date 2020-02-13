@@ -618,32 +618,7 @@ function initChart3(scale,initDiv){
 
 function initChart03(scale,initDiv){
     let chart = echarts.init(document.getElementById(initDiv), 'white', {renderer: 'canvas'});
-    let colors = [
-        "#c23531",
-        "#2f4554",
-        "#61a0a8",
-        "#d48265",
-        "#749f83",
-        "#ca8622",
-        "#bda29a",
-        "#6e7074",
-        "#546570",
-        "#c4ccd3",
-        "#f05b72",
-        "#ef5b9c",
-        "#f47920",
-        "#905a3d",
-        "#fab27b",
-        "#2a5caa",
-        "#444693",
-        "#726930",
-        "#b2d235",
-        "#6d8346",
-        "#ac6767",
-        "#1d953f",
-        "#6950a1",
-        "#918597"
-    ];
+    let colors = ['#1170E4', '#25ECED', '#00ffff', '#00baff', '#f8b551', '#7ecef4', '#dee122', '#62b94d'];
     let option = {
         "animation": true,
         "animationThreshold": 2000,
