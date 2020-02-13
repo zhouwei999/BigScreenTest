@@ -9,8 +9,7 @@ body{
 
 .background_div{
     width: 100%;
-    height: 100%;
-    background-color:black;
+    height: 100%; 
 }
 
 main{   
@@ -131,7 +130,7 @@ main{
 .centerChooseType{
     display: flex;
     position: fixed; 
-    left: 30%;
+    left: 29.8%;
     bottom: 4%;
     font-size: 3.5rem; 
 
@@ -152,8 +151,8 @@ main{
 .choosePic{ 
     border-radius: 3rem; 
     box-sizing: border-box;
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     display: flex;
     align-items: center; 
     justify-content: center;
@@ -162,10 +161,10 @@ main{
 
 .choose{
     >div{
-        background-color: yellow;
+        background-color: #FDBE03;
     }
     >span{
-        color: yellow;
+        color: #FDBE03;
     }
 }
 
@@ -197,11 +196,20 @@ main{
 
 .table>thead>tr{
     line-height: 4.5rem; 
+    font-size: 1.8rem;
+}
+
+.table>thead>tr>th{ 
+    font-weight: normal; 
 }
 
 .table>tbody>tr{
     line-height: 4.5rem; 
     text-align: center;
+    
+    >td{
+        font-weight: lighter; 
+    }
 } 
  
 .border{ 
@@ -271,8 +279,8 @@ main{
 }
 
 .img2{
-    width: 3rem;
-    height: 3rem; 
+    width: 2.5rem;
+    height: 2.5rem; 
 }
 
 .titleImg{
@@ -316,6 +324,6 @@ main{
 
 .chooseUnit{
     >div{
-        margin-top: 3.5rem;;
+        margin-top: 2.5rem;;
     }
 }

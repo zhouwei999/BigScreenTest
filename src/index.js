@@ -56,14 +56,14 @@ let area = [{"coordinates":[[120.444454973611,37.3926157661066],
 // initMap(area,color1);
 initChart1(scale,"chart1");
 initChart2(scale,"chart2");
-initChart3();
-initChart4();
-initChart5();
-initChart6();
-initChart7();
-initChart8();
-initChart9();
-initChart10();
+initChart3(scale,"chart3");
+initChart4(scale,"chart4");
+initChart5(scale,"chart5");
+initChart6(scale,"chart6");
+initChart7(scale,"chart7");
+initChart8(scale,"chart8");
+initChart9(scale,"chart9");
+initChart10(scale,"chart10");
 initWarningTable();
  
 $(".setButton").click(()=>{ 
@@ -315,8 +315,8 @@ function initChart1(scale,initDiv){
         grid: {
             top: '14%',
             left: '0',
-            right: '4%',
-            bottom: '3%',
+            right: '7%',
+            bottom: '8%',
             containLabel: true
         },
         xAxis: {
@@ -467,7 +467,7 @@ function initChart2(scale,initDiv){
     chart.setOption(option);
 }
 
-function initChart3(){
+function initChart3(scale,initDiv){
     // 图表数据
     let xData = function() {
         var data = [];
@@ -478,7 +478,7 @@ function initChart3(){
     }()
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart3"));   
+    let chart = echarts.init(document.getElementById(initDiv));   
     let option = { 
         "tooltip": {
             "trigger": "axis",
@@ -492,8 +492,8 @@ function initChart3(){
         "grid": { 
             top: '14%',
             left: '0',
-            right: '4%',
-            bottom: '3%',
+            right: '10%',
+            bottom: '8%',
             containLabel: true,
             textStyle: {
                 color: "#fff",
@@ -615,7 +615,7 @@ function initChart3(){
     chart.setOption(option);
 }
 
-function initChart4(){
+function initChart4(scale,initDiv){
     // 图表数据
     let xData = function() {
         var data = [];
@@ -626,7 +626,7 @@ function initChart4(){
     }()
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart4"));   
+    let chart = echarts.init(document.getElementById(initDiv));   
     let option = { 
         "tooltip": {
             "trigger": "axis",
@@ -751,7 +751,7 @@ function initChart4(){
     chart.setOption(option);
 }
 
-function initChart5(){
+function initChart5(scale,initDiv){
     // 图表数据
     let xData = function() {
         var data = [];
@@ -762,7 +762,7 @@ function initChart5(){
     }()
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart5"));   
+    let chart = echarts.init(document.getElementById(initDiv));   
     let option = { 
         "tooltip": {
             "trigger": "axis",
@@ -887,7 +887,7 @@ function initChart5(){
     chart.setOption(option);
 }
 
-function initChart6(){  
+function initChart6(scale,initDiv){  
     let hot = [];let cold = [];let mid = [];let lineXValue = [];
     for(let i = 0;i<7;i++){
         hot.push(weathers[i].day_air_temperature);
@@ -904,7 +904,7 @@ function initChart6(){
     }
     
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart6"));  
+    let chart = echarts.init(document.getElementById(initDiv));  
 
     let color = ['#DDF776', '#53F3F3','#0696F9']
     let lineY = [] 
@@ -988,7 +988,7 @@ function initChart6(){
               show: true,
               lineStyle: {
                 color: 'rgba(255,255,255,0.3)',
-                width: 1.3* scale,  // 中间分割线粗细
+                width: 0.3* scale,  // 中间分割线粗细
               }
             }, 
             axisLabel: {  
@@ -1004,7 +1004,7 @@ function initChart6(){
     chart.setOption(option);
 }
 
-function initChart7(){
+function initChart7(scale,initDiv){
     // 图表数据
     let xData = function() {
         var data = [];
@@ -1015,7 +1015,7 @@ function initChart7(){
     }()
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart7"));   
+    let chart = echarts.init(document.getElementById(initDiv));   
     let option = { 
         "tooltip": {
             "trigger": "axis",
@@ -1110,7 +1110,7 @@ function initChart7(){
     chart.setOption(option);
 }
 
-function initChart8(){
+function initChart8(scale,initDiv){
     // 图表数据 
     let xData = [];let rateData= [];
     for (var i = 0; i < 7; i++) {
@@ -1119,7 +1119,7 @@ function initChart8(){
     }  
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart8"));   
+    let chart = echarts.init(document.getElementById(initDiv));   
     let option = { 
         tooltip: {
             "trigger": "axis",
@@ -1256,7 +1256,7 @@ function initChart8(){
         },{ 
             name: '负荷',
             type: 'bar', 
-            barWidth: '15%',
+            barWidth: '20%',
             itemStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(
@@ -1275,7 +1275,7 @@ function initChart8(){
     chart.setOption(option);
 }
 
-function initChart9(){
+function initChart9(scale,initDiv){
     // 图表数据
     let xData = function() {
         var data = [];
@@ -1289,7 +1289,7 @@ function initChart9(){
     let data_val=[2220, 1682, 2791, 3000, 4090, 3230, 2910];
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart9"));   
+    let chart = echarts.init(document.getElementById(initDiv));   
     let option = { 
         "tooltip": { 
             textStyle: {
@@ -1434,7 +1434,7 @@ function initChart9(){
     chart.setOption(option);
 }
 
-function initChart10(){
+function initChart10(scale,initDiv){
     // 图表数据
     let xData = function() {
         var data = [];
@@ -1469,7 +1469,7 @@ function initChart10(){
     }]
      
     // 初始化图表
-    let chart = echarts.init(document.getElementById("chart10"));
+    let chart = echarts.init(document.getElementById(initDiv));
     let option = {  
         grid: { 
             top: '24%',
@@ -1488,9 +1488,10 @@ function initChart10(){
           axisLabel: { 
             textStyle: {
               fontFamily: 'Microsoft YaHei',
-              color:'#fff',
+              color:'#fff', 
               fontSize: 23*scale,  // x轴字大小
-            }
+            },
+            margin:22*scale,
           }, 
         }],
         yAxis: {
@@ -1626,11 +1627,11 @@ function initChart10(){
 
 // 告警列表
 function initWarningTable() { 
-    let warningData = [{name:'學校11',remark:"xxx",value:"123",level:"1",updateTime:"2019,23,22 00:00:00"},
-        {name:'學校22',remark:"xxx",value:"123",level:"1",updateTime:"2019,23,22"},
-        {name:'學校',remark:"xxx",value:"123",level:"1",updateTime:"2019,23,22"},
-        {name:'學校',remark:"xxx",value:"123",level:"1",updateTime:"2019,23,22"},
-        {name:'學校',remark:"xxx",value:"123",level:"1",updateTime:"2019,23,22"}]; 
+    let warningData = [{name:'學校11',remark:"xxx",value:"123",level:"1",updateTime:"2019.03.22 00:00:00"},
+        {name:'學校22',remark:"xxx",value:"123",level:"1",updateTime:"2019.03.22 00:00:00"},
+        {name:'學校',remark:"xxx",value:"123",level:"1",updateTime:"2019.03.22 00:00:00"},
+        {name:'學校',remark:"xxx",value:"123",level:"1",updateTime:"2019.03.22 00:00:00"},
+        {name:'學校',remark:"xxx",value:"123",level:"1",updateTime:"2019.03.22 00:00:00"}]; 
     $('#warningTable').DataTable({
         data: warningData,
         destroy: true,
@@ -1646,7 +1647,7 @@ function initWarningTable() {
             {
                 title: '告警来源',
                 data: "name",
-                width: "21%",
+                // width: "20%",
                 render: function (data, type, row, meta) {
                     if (row.serialNo === "*") {
                         return "全网";
@@ -1657,18 +1658,18 @@ function initWarningTable() {
             }, {
                 title: '告警内容',
                 data: "remark",
-                width: "18%",
+                // width: "18%",
                 render: function (data, type, row, meta) {
                     return "<span title='" + data + "'>" + data.substring(0, 5) + "</span>";
                 },
             }, {
                 title: '异常值',
                 data: "value",
-                width: "15%",
+                // width: "15%",
             }, {
                 title: '告警等级',
                 data: "level",
-                width: "18%",
+                // width: "18%",
                 render: function (data, type, row, meta) {
                     if (data == 1) {
                         return "<div style='width:100%;text-align: center;'><div style='display: inline-block;width: 4.5rem;line-height: 3rem;color: #fff;text-align: center;background: #F8B356; border-radius: 0.3rem;font-weight: bold;'>一</div></div>"
@@ -1684,7 +1685,7 @@ function initWarningTable() {
             }, {
                 title: '生成时间',
                 data: "updateTime",
-                width: '28%',
+                // width: '28%',
             },
         ],
         columnDefs: [
